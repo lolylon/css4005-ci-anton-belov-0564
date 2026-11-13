@@ -1,0 +1,44 @@
+flowchart TB
+  Internet((Internet)) --> ALB["ALB HTTPS<br/>ci-anton-belov-0564-alb"]
+
+  subgraph VPC["VPC 10.195.0.0/16"]
+    subgraph Public["Public subnets .0/.1"]
+      ALB
+      NAT["NAT t3.micro<br/>AZ-a"]
+    end
+
+    subgraph App["App subnets .10/.11"]
+      S["k3s server"]
+      A1["k3s agent ASG"]
+      A2["k3s agent ASG"]
+      S --- Pods["campus-app pods<br/>HPA@60%"]
+      A1 --- Pods
+      A2 --- Pods
+    end
+
+    subgraph DB["DB subnets .20/.21 + NACL"]
+      MP["MySQL primary"]
+      MR["MySQL replica"]
+      CH["ClickHouse"]
+    end
+  end
+
+  ALB -->|"NodePort 30080"| S
+  ALB --> A1
+  ALB --> A2
+  Pods --> MP
+  Pods --> CH
+  MP --> MR
+  App --> NAT
+  DB --> NAT
+
+  SM[(Secrets Manager)]
+  S3[(S3 files + backups)]
+  ECR[(ECR image)]
+  CW[(CloudWatch)]
+
+  Pods --> S3
+  Pods --> ECR
+  MP --> S3
+  S --> SM
+  Pods --> CW

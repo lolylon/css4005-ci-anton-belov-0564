@@ -1,0 +1,6 @@
+restore_start=2026-11-13T10:51:46Z
+backup=20261113T103718Z.sql.gz
+Tables: items
+items count=1
+restore_end=2026-11-13T10:51:48Z
+elapsed_seconds=2 (RTO limit 1800s / 30min) — PASS

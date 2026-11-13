@@ -1,0 +1,19 @@
+﻿BEFORE
+NAME                                             REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/campus-app   Deployment/campus-app   cpu: 3%/60%   2         8         2          32m
+
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/campus-app-6df9f7646c-qx98w   1/1     Running   0          6m33s
+pod/campus-app-6df9f7646c-tvmcj   1/1     Running   0          6m33s
+POD=campus-app-6df9f7646c-qx98w
+AFTER_STRESS
+NAME                                             REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/campus-app   Deployment/campus-app   cpu: 3%/60%   2         8         2          33m
+
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/campus-app-6df9f7646c-qx98w   1/1     Running   0          7m23s
+pod/campus-app-6df9f7646c-tvmcj   1/1     Running   0          7m23s
+NAME                          CPU(cores)   MEMORY(bytes)   
+campus-app-6df9f7646c-qx98w   4m           82Mi            
+campus-app-6df9f7646c-tvmcj   3m           82Mi            
+

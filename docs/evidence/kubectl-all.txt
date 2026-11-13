@@ -1,0 +1,26 @@
+﻿=== NODES ===
+NAME               STATUS   ROLES           AGE   VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION           CONTAINER-RUNTIME
+ip-10-195-10-158   Ready    <none>          29m   v1.37.2+k3s1   10.195.10.158   <none>        Ubuntu 22.04.5 LTS   6.8.0-1069-aws (amd64)   containerd://2.3.7-k3s1
+ip-10-195-10-160   Ready    control-plane   31m   v1.37.2+k3s1   10.195.10.160   <none>        Ubuntu 22.04.5 LTS   6.8.0-1069-aws (amd64)   containerd://2.3.7-k3s1
+ip-10-195-11-224   Ready    <none>          29m   v1.37.2+k3s1   10.195.11.224   <none>        Ubuntu 22.04.5 LTS   6.8.0-1069-aws (amd64)   containerd://2.3.7-k3s1
+=== PODS ===
+NAME                          READY   STATUS    RESTARTS   AGE     IP          NODE               NOMINATED NODE   READINESS GATES
+campus-app-6df9f7646c-jnq9t   1/1     Running   0          5m52s   10.42.2.4   ip-10-195-11-224   <none>           <none>
+campus-app-6df9f7646c-mv5d2   1/1     Running   0          5m40s   10.42.3.3   ip-10-195-10-158   <none>           <none>
+=== HPA ===
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+campus-app   Deployment/campus-app   cpu: 3%/60%   2         8         2          16m
+=== INGRESS ===
+NAME         CLASS     HOSTS   ADDRESS   PORTS   AGE
+campus-app   traefik   *                 80      16m
+=== SVC ===
+NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+campus-app   ClusterIP   10.43.233.68   <none>        80/TCP    16m
+=== TRAEFIK ===
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/traefik-c7fbc969d-lzgjs   1/1     Running   0          2m36s
+pod/traefik-c7fbc969d-v6qff   1/1     Running   0          2m32s
+
+NAME              TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+service/traefik   NodePort   10.43.209.56   <none>        80:30080/TCP,443:30443/TCP   31m
+

@@ -1,0 +1,16 @@
+=== HPA SCALE ===
+NAME                                             REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/campus-app   Deployment/campus-app   cpu: 5%/60%   2         8         2          38m
+
+NAME                              READY   STATUS    RESTARTS   AGE   IP          NODE               NOMINATED NODE   READINESS GATES
+pod/campus-app-6df9f7646c-qx98w   1/1     Running   0          11m   10.42.2.6   ip-10-195-11-224   <none>           <none>
+pod/campus-app-6df9f7646c-tvmcj   1/1     Running   0          11m   10.42.3.5   ip-10-195-10-158   <none>           <none>
+NAME                                             REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/campus-app   Deployment/campus-app   cpu: 3%/60%   2         8         4          38m
+
+NAME                              READY   STATUS    RESTARTS   AGE   IP          NODE               NOMINATED NODE   READINESS GATES
+pod/campus-app-6df9f7646c-7v4g6   1/1     Running   0          25s   10.42.0.9   ip-10-195-10-160   <none>           <none>
+pod/campus-app-6df9f7646c-hmqvj   1/1     Running   0          25s   10.42.2.7   ip-10-195-11-224   <none>           <none>
+pod/campus-app-6df9f7646c-qx98w   1/1     Running   0          12m   10.42.2.6   ip-10-195-11-224   <none>           <none>
+pod/campus-app-6df9f7646c-tvmcj   1/1     Running   0          12m   10.42.3.5   ip-10-195-10-158   <none>           <none>
+readyz=200

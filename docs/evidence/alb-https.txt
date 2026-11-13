@@ -1,0 +1,3 @@
+# ALB HTTPS readyz — 2026-11-13T15:26:57.3805172+05:00
+{"ready":true,"checks":{"db":true,"storage":true}}
+{"status":"ok"}

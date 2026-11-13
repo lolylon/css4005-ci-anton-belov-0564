@@ -1,0 +1,36 @@
+# Copy to terraform.tfvars (gitignored). No secrets here — only variant knobs.
+
+resource_prefix      = "ci-anton-belov-0564"
+aws_region           = "us-east-1"
+availability_zones   = ["us-east-1a", "us-east-1b"]
+vpc_cidr             = "10.195.0.0/16"
+app_name             = "Library books"
+app_owner            = "Anton Belov (0564)"
+monthly_budget_usd   = 15
+budget_alert_email   = "YOUR_EMAIL@example.com"
+db_engine            = "mysql"
+clickhouse_required  = true
+hpa_cpu_target       = 60
+password_min_length  = 14
+password_require_symbol = true
+alert_cpu_pct        = 80
+alert_5xx_per_min    = 20
+backup_retention_days = 30
+rpo_minutes          = 15
+rto_minutes          = 30
+traffic_pattern      = "spiky"
+cluster_type         = "k3s-on-autoscaled-vms"
+
+# Cost-tight sizing for $15 evidence window (destroy after screenshots)
+k3s_server_instance_type = "t3.small"
+k3s_agent_instance_type  = "t3.small"
+k3s_agent_min            = 2
+k3s_agent_max            = 4
+k3s_agent_desired        = 2
+db_instance_type         = "t3.small"
+db_replica_instance_type = "t3.micro"
+clickhouse_instance_type = "t3.small"
+nat_instance_type        = "t3.micro"
+
+# After you create the public GitHub repo: "owner/repo"
+github_org_repo          = ""

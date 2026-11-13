@@ -1,0 +1,15 @@
+﻿Success	mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
+Completed 843 Bytes/843 Bytes (11.5 KiB/s) with 1 file(s) remaining
+upload: ../../../../tmp/campus-20261113T103718Z.sql.gz to s3://ci-anton-belov-0564-files/backups/mysql/20261113T103718Z.sql.gz
+2026-11-13 10:00:03        483 backups/mysql/20261113T100001Z.sql.gz
+2026-11-13 10:15:03        793 backups/mysql/20261113T101501Z.sql.gz
+2026-11-13 10:30:03        794 backups/mysql/20261113T103001Z.sql.gz
+2026-11-13 10:37:20        843 backups/mysql/20261113T103718Z.sql.gz
+*************************** 1. row ***************************
+             File: binlog.000006
+         Position: 929
+     Binlog_Do_DB: 
+ Binlog_Ignore_DB: 
+Executed_Gtid_Set: 
+	

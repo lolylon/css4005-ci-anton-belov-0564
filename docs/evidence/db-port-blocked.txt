@@ -1,0 +1,4 @@
+=== DB 3306 from public internet (should fail) ===
+mysql_private=10.195.20.129 (not reachable from Internet by design)
+nat_public=34.231.218.250 trying TCP/3306 ...
+result=TIMEOUT/FILTERED

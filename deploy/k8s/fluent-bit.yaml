@@ -1,0 +1,72 @@
+# Optional DaemonSet — ship pod JSON logs to CloudWatch.
+# Requires node instance role permission for logs:* (already on node role).
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: logging
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fluent-bit
+  namespace: logging
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluent-bit
+  namespace: logging
+  labels:
+    project: ci-anton-belov-0564
+spec:
+  selector:
+    matchLabels:
+      app: fluent-bit
+  template:
+    metadata:
+      labels:
+        app: fluent-bit
+    spec:
+      serviceAccountName: fluent-bit
+      containers:
+        - name: fluent-bit
+          image: public.ecr.aws/aws-observability/aws-for-fluent-bit:stable
+          env:
+            - name: AWS_REGION
+              value: us-east-1
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log
+              readOnly: true
+            - name: fluent-bit-config
+              mountPath: /fluent-bit/etc/
+      volumes:
+        - name: varlog
+          hostPath:
+            path: /var/log
+        - name: fluent-bit-config
+          configMap:
+            name: fluent-bit-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config
+  namespace: logging
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush 5
+        Daemon Off
+    [INPUT]
+        Name tail
+        Path /var/log/containers/campus-app*.log
+        Tag app.*
+        Mem_Buf_Limit 25MB
+    [OUTPUT]
+        Name cloudwatch_logs
+        Match app.*
+        region us-east-1
+        log_group_name /ci-anton-belov-0564/app
+        log_stream_prefix from-fluent-bit-
+        auto_create_group true

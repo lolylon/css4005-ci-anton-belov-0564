@@ -1,0 +1,8 @@
+﻿---------------------------------------------------------------------------------
+|                                DescribeAlarms                                 |
++----------------------------------------+--------+-----------------------------+
+|  ci-anton-belov-0564-5xx-high          |  OK    |  HTTPCode_Target_5XX_Count  |
+|  ci-anton-belov-0564-cpu-high          |  OK    |  CPUUtilization             |
+|  ci-anton-belov-0564-mysql-status      |  OK    |  StatusCheckFailed          |
+|  ci-anton-belov-0564-unhealthy-targets |  ALARM |  UnHealthyHostCount         |
++----------------------------------------+--------+-----------------------------+

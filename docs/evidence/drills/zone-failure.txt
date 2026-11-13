@@ -1,0 +1,7 @@
+=== ZONE FAILURE us-east-1a workers ===
+NAME                          READY   STATUS    RESTARTS   AGE   IP           NODE               NOMINATED NODE   READINESS GATES
+campus-app-6df9f7646c-7v4g6   1/1     Running   0          63s   10.42.0.9    ip-10-195-10-160   <none>           <none>
+campus-app-6df9f7646c-gzrtm   1/1     Running   0          37s   10.42.0.10   ip-10-195-10-160   <none>           <none>
+campus-app-6df9f7646c-hmqvj   1/1     Running   0          63s   10.42.2.7    ip-10-195-11-224   <none>           <none>
+campus-app-6df9f7646c-qx98w   1/1     Running   0          12m   10.42.2.6    ip-10-195-11-224   <none>           <none>
+{"ready":true,"checks":{"db":true,"storage":true}}

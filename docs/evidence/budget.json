@@ -1,0 +1,44 @@
+﻿{
+    "Budget": {
+        "BudgetName": "ci-anton-belov-0564-monthly",
+        "BudgetLimit": {
+            "Amount": "15.0",
+            "Unit": "USD"
+        },
+        "CostFilters": {},
+        "CostTypes": {
+            "IncludeTax": true,
+            "IncludeSubscription": true,
+            "UseBlended": false,
+            "IncludeRefund": true,
+            "IncludeCredit": true,
+            "IncludeUpfront": true,
+            "IncludeRecurring": true,
+            "IncludeOtherSubscription": true,
+            "IncludeSupport": true,
+            "IncludeDiscount": true,
+            "UseAmortized": false
+        },
+        "TimeUnit": "MONTHLY",
+        "TimePeriod": {
+            "Start": "2026-11-01T05:00:00+05:00",
+            "End": "2087-06-15T05:00:00+05:00"
+        },
+        "CalculatedSpend": {
+            "ActualSpend": {
+                "Amount": "0.0",
+                "Unit": "USD"
+            },
+            "ForecastedSpend": {
+                "Amount": "7.153",
+                "Unit": "USD"
+            }
+        },
+        "BudgetType": "COST",
+        "LastUpdatedTime": "2026-11-13T15:04:37.133000+05:00",
+        "HealthStatus": {
+            "Status": "HEALTHY",
+            "LastUpdatedTime": "2026-11-13T15:04:36.562000+05:00"
+        }
+    }
+}

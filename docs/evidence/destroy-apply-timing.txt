@@ -1,0 +1,5 @@
+﻿=== destroy / apply timing (from session logs) ===
+terraform apply (initial platform): ~25-40 min (bootstrap + health)
+evidence window + drills: completed same day
+terraform destroy: completed; final pass Resources: 0 destroyed
+Rationale: short live window then destroy to stay under $15 budget.

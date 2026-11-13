@@ -1,0 +1,30 @@
+﻿=== TEARDOWN PROOF 2026-11-13T16:03:36.4523675+05:00 ===
+
+PS> aws ec2 describe-instances --filters Name=tag:Project,Values=ci-anton-belov-0564 Name=instance-state-name,Values=running,pending,stopped --query Reservations[].Instances[].[InstanceId,State.Name,Tags[?Key==`Name`].Value|[0]] --output table
+(empty — no running/stopped instances)
+
+PS> aws elbv2 describe-load-balancers --query LoadBalancers[?contains(LoadBalancerName,'ci-anton-belov')]
+(empty — no ALB)
+
+PS> aws ec2 describe-vpcs --filters Name=tag:Project,Values=ci-anton-belov-0564
+(empty — no VPC)
+
+PS> aws ec2 describe-nat-gateways --filter Name=tag:Project,Values=ci-anton-belov-0564
+(empty — NAT was EC2 instance; terminated)
+
+PS> aws ec2 describe-snapshots --owner-ids self --filters Name=tag:Project,Values=ci-anton-belov-0564
+(empty — DLM snapshots deleted)
+
+PS> aws budgets describe-budget --budget-name ci-anton-belov-0564-monthly
+NotFoundException: budget does not exist
+
+PS> terraform state list
+(empty — 0 resources)
+
+PS> terraform destroy (final pass)
+Destroy complete! Resources: 0 destroyed.
+
+RESULT: billable stack torn down. Retained only remote state backend:
+  s3://ci-anton-belov-0564-tfstate (near-zero cost)
+  DynamoDB ci-anton-belov-0564-tf-locks
+Evidence + REPORT.docx kept locally.

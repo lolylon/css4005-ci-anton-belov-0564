@@ -1,0 +1,10 @@
+﻿Replica_IO_Running: Yes
+Replica_SQL_Running: Yes
+Seconds_Behind_Source: 0
+Source_Host: 10.195.20.129
+Last_Error: (empty)
+Retrieved_Gtid_Set: 46fd7138-df48-11f1-9cfb-02fffc4ff901:1-2
+Executed_Gtid_Set: 46fd7138-df48-11f1-9cfb-02fffc4ff901:1-2
+Self-heal drill: pods deleted, Ready again in ~30s
+Backups: s3://ci-anton-belov-0564-files/backups/mysql/ (15-min cron + manual 20261113T103718Z.sql.gz)
+SNS: Subscription confirmed for ci-anton-belov-0564-alerts

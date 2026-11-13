@@ -1,0 +1,15 @@
+title = "gitleaks"
+# Fail on real secrets; allow documented placeholders in examples/SQL templates.
+[allowlist]
+description = "Allow example placeholders"
+paths = [
+  '''\.env\.example''',
+  '''app/sql/.*\.sql''',
+  '''terraform/terraform\.tfvars\.example''',
+  '''docs/.*''',
+]
+regexes = [
+  '''CHANGE-ME''',
+  '''change-me''',
+  '''REPLACE_''',
+]

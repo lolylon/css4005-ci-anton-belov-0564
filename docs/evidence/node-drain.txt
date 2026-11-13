@@ -1,0 +1,16 @@
+=== NODE DRAIN ===
+worker=ip-10-195-10-158
+node/ip-10-195-10-158 cordoned
+node/ip-10-195-10-158 already cordoned
+evicting pod traefik/traefik-c7fbc969d-v6qff
+evicting pod campus-app/campus-app-6df9f7646c-tvmcj
+pod/traefik-c7fbc969d-v6qff evicted
+pod/campus-app-6df9f7646c-tvmcj evicted
+node/ip-10-195-10-158 drained
+NAME                          READY   STATUS    RESTARTS   AGE   IP           NODE               NOMINATED NODE   READINESS GATES
+campus-app-6df9f7646c-7v4g6   1/1     Running   0          43s   10.42.0.9    ip-10-195-10-160   <none>           <none>
+campus-app-6df9f7646c-gzrtm   1/1     Running   0          17s   10.42.0.10   ip-10-195-10-160   <none>           <none>
+campus-app-6df9f7646c-hmqvj   1/1     Running   0          43s   10.42.2.7    ip-10-195-11-224   <none>           <none>
+campus-app-6df9f7646c-qx98w   1/1     Running   0          12m   10.42.2.6    ip-10-195-11-224   <none>           <none>
+readyz=200
+node/ip-10-195-10-158 uncordoned

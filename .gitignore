@@ -1,0 +1,29 @@
+.env
+*.env
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+data/
+.DS_Store
+.image_tag
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+# keys / local secrets
+*.pem
+*.key
+# one-off SSM/debug payloads
+scripts/_*.json
+scripts/_*.sh
+!scripts/_lib_awscli.sh
+
+scripts/pw*.json

@@ -1,0 +1,49 @@
+﻿Success	Completed 2.4 KiB/2.4 KiB (55.8 KiB/s) with 1 file(s) remaining
+download: s3://ci-anton-belov-0564-files/build/drill1.sh to ../../../../tmp/drill1.sh
+DRILL_START=2026-11-13T10:36:41Z
+=== BEFORE ===
+NAME                          READY   STATUS    RESTARTS   AGE   IP          NODE               NOMINATED NODE   READINESS GATES
+campus-app-6df9f7646c-jnq9t   1/1     Running   0          15m   10.42.2.4   ip-10-195-11-224   <none>           <none>
+campus-app-6df9f7646c-mv5d2   1/1     Running   0          15m   10.42.3.3   ip-10-195-10-158   <none>           <none>
+readyz_before=200
+local_readyz=200
+=== DELETE PODS ===
+pod "campus-app-6df9f7646c-jnq9t" force deleted from campus-app namespace
+pod "campus-app-6df9f7646c-mv5d2" force deleted from campus-app namespace
+t=10s ready_pods=0 readyz=502
+t=20s ready_pods=0 readyz=404
+t=30s ready_pods=2 readyz=200
+SELFHEAL_OK after 30s
+=== AFTER ===
+NAME                          READY   STATUS    RESTARTS   AGE   IP          NODE               NOMINATED NODE   READINESS GATES
+campus-app-6df9f7646c-qx98w   1/1     Running   0          21s   10.42.2.6   ip-10-195-11-224   <none>           <none>
+campus-app-6df9f7646c-tvmcj   1/1     Running   0          21s   10.42.3.5   ip-10-195-10-158   <none>           <none>
+NAME         REFERENCE               TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+campus-app   Deployment/campus-app   cpu: <unknown>/60%   2         8         2          26m
+DRILL_END=2026-11-13T10:37:02Z
+create 201 b'{"title":"Drill book","description":"selfheal","id":1,"created_at":"2026-11-13T10:37:02.831322","attachment_name":null}'
+Completed 1.1 KiB/1.1 KiB (15.7 KiB/s) with 1 file(s) remaining
+upload: ../../../../tmp/drill-evidence/selfheal.txt to s3://ci-anton-belov-0564-files/build/drill-selfheal.txt
+Completed 186 Bytes/186 Bytes (2.9 KiB/s) with 1 file(s) remaining
+upload: ../../../../tmp/drill-evidence/hpa-before.txt to s3://ci-anton-belov-0564-files/build/drill-hpa-before.txt
+DRILL_START=2026-11-13T10:36:41Z
+=== BEFORE ===
+NAME                          READY   STATUS    RESTARTS   AGE   IP          NODE               NOMINATED NODE   READINESS GATES
+campus-app-6df9f7646c-jnq9t   1/1     Running   0          15m   10.42.2.4   ip-10-195-11-224   <none>           <none>
+campus-app-6df9f7646c-mv5d2   1/1     Running   0          15m   10.42.3.3   ip-10-195-10-158   <none>           <none>
+readyz_before=200
+local_readyz=200
+=== DELETE PODS ===
+pod "campus-app-6df9f7646c-jnq9t" force deleted from campus-app namespace
+pod "campus-app-6df9f7646c-mv5d2" force deleted from campus-app namespace
+t=10s ready_pods=0 readyz=502
+t=20s ready_pods=0 readyz=404
+t=30s ready_pods=2 readyz=200
+SELFHEAL_OK after 30s
+=== AFTER ===
+NAME                          READY   STATUS    RESTARTS   AGE   IP          NODE               NOMINATED NODE   READINESS GATES
+campus-app-6df9f7646c-qx98w   1/1     Running   0          21s   10.42.2.6   ip-10-195-11-224   <none>           <none>
+campus-app-6df9f7646c-tvmcj   1/1     Running   0          21s   10.42.3.5   ip-10-195-10-158   <none>           <none>
+DRILL_END=2026-11-13T10:37:02Z
+DRILL1_DONE
+
